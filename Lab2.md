@@ -1,101 +1,29 @@
-1. Створити змінні базових (atomic) типів. Базові типи: character, numeric,
-integer, complex, logical.
-
-character <- 'a'
-numeric <- 8.45
-integer <- 6
-complex <- 1 + 2i
-logical <- TRUE
-
-2. Створити вектори, які: містить послідовність з 5 до 75; містить числа 3.14,
-2.71, 0, 13; 100 значень TRUE
-
-vector1 <- c(5:75)
-vector2 <- c(3.14, 2.71, 0, 13)
-vector3 <- c(rep(TRUE, 100))
-
-3. Створити наступну матрицю за допомогою matrix, та за допомогою cbind
-або rbind
-0.5 1.3 3.5
-3.9 131 2.8
-0 2.2 4.6
-2 7 5.1
-
-m <- matrix(c(0.5, 3.9, 0, 2, 1.3, 131, 2.2, 7, 3.5, 2.8, 4.6, 5.1), nrow = 4, ncol = 3)
-m2 <- cbind( c(0.5, 3.9, 0, 2), c(1.3, 131, 2.2, 7), c(3.5, 2.8, 4.6, 5.1))
-
-4. Створити довільний список (list), в який включити всі базові типи.
-list <- list('a', 8.45, as.integer(6), 1+2i, TRUE)
-
-5. Створити фактор з трьома рівнями «baby», «child», «adult».
-factor1 <- factor(x =c('baby','child','adult', 'adult', 'baby', 'baby'),
-                  levels = c('baby','child', 'adult'))
-
-6. Знайти індекс першого значення NA в векторі 1, 2, 3, 4, NA, 6, 7, NA, 9, NA,
-11. Знайти кількість значень NA.
-
-x <- c(1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11)
-num <- 0
-index <- NULL
-first_NA_found <- FALSE
-for (i in 1:length(x))
-{
-  if(is.na(x[i] == TRUE))
-     {
-        if(first_NA_found == FALSE)
-          {
-          index <- i
-          first_NA_found <- TRUE
-          } 
-        num <- num + 1
-      }
-}
-print(index)
-print(num)
-#результат
-> x <- c(1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11)
-> num <- 0
-> index <- NULL
-> first_NA_found <- FALSE
-> for (i in 1:length(x))
-+ {
-+   if(is.na(x[i] == TRUE))
-+      {
-+         if(first_NA_found == FALSE)
-+           {
-+           index <- i
-+           first_NA_found <- TRUE
-+           } 
-+         num <- num + 1
-+       }
-+ }
-> print(index)
-[1] 5
-> print(num)
-[1] 3
+#1. Створить вектор v із 100 елементів командою v <- rnorm(100). Для цього
+#вектору виведіть: 10-й елемент; елементи з 10-го по 20-й включно; 10
+#елементів починаючи з 20-го; елементи більше 0.
+v <- rnorm(100)
+print(v[10])
+print(v[10:20])
+print(v[20:30])
+print(v[v>0])
 
 
-7. Створити довільний data frame та вивести в консоль.
-x <- data.frame(foo = 1:4, bar = c(T, T, F, F))
-print(x)
-#результат
-> x <- data.frame(foo = 1:4, bar = c(T, T, F, F))
-> print(x)
-  foo   bar
-1   1  TRUE
-2   2  TRUE
-3   3 FALSE
-4   4 FALSE
+#2. Створити фрейм (data frame) y командою y <- data.frame(a = rnorm(100), = 1:100, cc = sample(letters, 100, replace = TRUE)).
+#Для цього data frame виведіть: останні 10 строк; строки з 10 по 20 включно; 10-й елемент
+#стовпця b; повністю стовпець cc, при цьому використайте ім’я стовпця.
+y <- data.frame(a = rnorm(100), b = 1:100, cc = sample(letters, 100, replace = TRUE))
+print(tail(y, 10))
+print(y[10:20,,drop = FALSE])
+print(y[10,2])
+print(y['cc'])
+                                                         
+                                                          
+#3. Створити вектор z з елементами 1, 2, 3, NA, 4, NA, 5, NA. Для цього
+#вектору: виведіть всі елементи, які не NA; підрахуйте середнє значення
+#всіх елементів цього вектору без NA значень та з NA значеннями.
 
-8. Змінити імена стовпців цього data frame.
-names(x) <- c('Nums', 'Logics')
-print(x)
-
-> names(x) <- c('Nums', 'Logics')
-> print(x)
-  Nums Logics
-1    1   TRUE
-2    2   TRUE
-3    3  FALSE
-4    4  FALSE
+z <- c(1,2,3,NA,4,NA, 5, NA)
+print(z[!is.na(z)])
+print(mean(z))
+print(mean(z[!is.na(z)]))
 
