@@ -1,3 +1,9 @@
+Для зручності читання натисніть 
+
+
+![image](https://user-images.githubusercontent.com/58259113/210535191-2832d10f-cf53-4976-aa00-e069e734adb0.png)
+
+
 1. Створити змінні базових (atomic) типів. Базові типи: character, numeric,
 integer, complex, logical.
 
