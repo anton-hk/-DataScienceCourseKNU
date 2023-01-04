@@ -1,2 +1,2 @@
-# -DataScienceCourseKNU
-Гікал Антон Олександрович УПз-11
+1. Створити змінні базових (atomic) типів. Базові типи: character, numeric,
+integer, complex, logical.
